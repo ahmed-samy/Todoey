@@ -30,9 +30,9 @@ class TodoViewController: UITableViewController {
         newItem3.title = "Item 3"
         itemArray.append(newItem3)
 
-//        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
-//            itemArray = items
-//        }
+        if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
+            itemArray = items
+        }
         
     }
 
@@ -105,7 +105,7 @@ class TodoViewController: UITableViewController {
             newItem.title = textField.text!
             self.itemArray.append(newItem)
             
-            // self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             
             self.tableView.reloadData()
         
